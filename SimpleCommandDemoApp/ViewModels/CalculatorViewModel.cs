@@ -11,7 +11,7 @@ using GalaSoft.MvvmLight.Command;
 namespace SimpleCommandDemoApp.ViewModels
 {
     //TODO 创建关于错误的snippet 方便快捷写代码
-    //TODO 有错误时，改变命令的可执行性状态
+    //TODO 验证还有错误时，命令的可执行性状态 按钮enable 属性为false
     public class CalculatorViewModel : ViewModelBase, IDataErrorInfo
     {
         private int? _second;
