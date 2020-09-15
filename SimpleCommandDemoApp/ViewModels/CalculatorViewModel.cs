@@ -1,28 +1,27 @@
-﻿using System;
+﻿using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
+using System;
 using System.CodeDom;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GalaSoft.MvvmLight;
-using GalaSoft.MvvmLight.Command;
 
 namespace SimpleCommandDemoApp.ViewModels
 {
     //TODO 创建关于错误的snippet 方便快捷写代码
-    //TODO 验证还有错误时，命令的可执行性状态 按钮enable 属性为false
     public class CalculatorViewModel : ViewModelBase, IDataErrorInfo
     {
-        private int? _second;
-        private int? _first;
+        private string _second;
+        private string _first;
 
         private readonly CalculatorValidator _validator;
 
         /// <summary>
         /// 第一个输入值
         /// </summary>
-        public int? First
+        public string First
         {
             get
             {
@@ -42,7 +41,7 @@ namespace SimpleCommandDemoApp.ViewModels
         /// <summary>
         /// 第二个输入值
         /// </summary>
-        public int? Second
+        public string Second
         {
             get
             {
@@ -82,31 +81,34 @@ namespace SimpleCommandDemoApp.ViewModels
 
         private bool DivideCommandCanExecute()
         {
-            return IsFirstAndSecondBothNotNull()
-                   && Second != null && (int)Second != 0;
+            int res = default(int);
+            return IsNoErrors()
+                   && Second != null
+                   && int.TryParse(Second, out res)
+                   && res != 0;
         }
 
         private void DivideCommandExecute()
         {
-            Result = First * 1.0 / Second;
+            Result = int.Parse(First) * 1.0 / int.Parse(Second);
         }
 
         private bool MultiplyCommandCanExecute()
         {
-            return IsFirstAndSecondBothNotNull();
+            return IsNoErrors();
         }
 
         private void MultiplyCommandExecute()
         {
-            Result = First * Second;
+            Result = int.Parse(First) * int.Parse(Second);
         }
 
         private bool SubstractCommandCanExecute()
         {
-            return IsFirstAndSecondBothNotNull();
+            return IsNoErrors();
         }
 
-        private bool IsFirstAndSecondBothNotNull()
+        private bool IsNoErrors()
         {
             var errors = _validator.Validate(this).Errors;
 
@@ -115,17 +117,17 @@ namespace SimpleCommandDemoApp.ViewModels
 
         private void SubstractCommandExecute()
         {
-            Result = First - Second;
+            Result = int.Parse(First) - int.Parse(Second);
         }
 
         private bool AddCommandCanExecute()
         {
-            return IsFirstAndSecondBothNotNull();
+            return IsNoErrors();
         }
 
         private void AddCommondExecute()
         {
-            Result = First + Second;
+            Result = int.Parse(First) + int.Parse(Second);
         }
 
         public string this[string columnName]
