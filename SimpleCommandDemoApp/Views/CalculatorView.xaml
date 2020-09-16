@@ -51,13 +51,13 @@
 
         <!--运算-->
         <!--<Rectangle Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="4" Fill="LightBlue"></Rectangle>-->
-        <Button Grid.Row="2" Grid.Column="0" Content="+"  Margin="10,0,0,0" HorizontalAlignment="Left" Height="50"
+        <Button Grid.Row="2" Grid.Column="0" Content="+"  Margin="10,0,0,0" HorizontalAlignment="Center" Height="50"
                 Width="50" FontSize="30" Command="{Binding AddCommand}"></Button>
-        <Button Grid.Row="2" Grid.Column="1" Content="-"  Margin="10,0,0,0" HorizontalAlignment="Left" Height="50"
+        <Button Grid.Row="2" Grid.Column="1" Content="-"  Margin="10,0,0,0" HorizontalAlignment="Center" Height="50"
                 Width="50" FontSize="30" Command="{Binding SubstractCommand}"></Button>
-        <Button Grid.Row="2" Grid.Column="2" Content="*"  Margin="10,0,0,0" HorizontalAlignment="Left" Height="50"
+        <Button Grid.Row="2" Grid.Column="2" Content="*"  Margin="10,0,0,0" HorizontalAlignment="Center" Height="50"
                 Width="50" FontSize="30" Command="{Binding MultiplyCommand}"></Button>
-        <Button Grid.Row="2" Grid.Column="3" Content="%"  Margin="10,0,0,0" HorizontalAlignment="Left" Height="50"
+        <Button Grid.Row="2" Grid.Column="3" Content="%"  Margin="10,0,0,0" HorizontalAlignment="Center" Height="50"
                 Width="50" FontSize="30" Command="{Binding DivideCommand}"></Button>
 
         <Label Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" FontSize="25" Margin="10,0,0,0" HorizontalAlignment="Left"

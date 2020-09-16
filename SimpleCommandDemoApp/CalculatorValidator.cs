@@ -12,17 +12,18 @@ namespace SimpleCommandDemoApp
     {
         public CalculatorValidator()
         {
-            int result = default(int);
             RuleFor(v => v.First)
                 .NotEmpty()
+                .WithMessage("输入值不能为空")
                 .NotNull()
-                .Must(s => int.TryParse(s, out result))
+                .Must(s => int.TryParse(s, out _))
                 .WithMessage("请输入整数");
 
             RuleFor(v => v.Second)
                 .NotEmpty()
+                .WithMessage("输入值不能为空")
                 .NotNull()
-                .Must(s => int.TryParse(s, out result))
+                .Must(s => int.TryParse(s, out _))
                 .WithMessage("请输入整数");
         }
     }
